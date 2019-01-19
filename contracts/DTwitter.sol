@@ -75,11 +75,15 @@ contract DTwitter {
         require(owners[msg.sender] == 0);
 
         // add a user to the users mapping and populate details 
-        // (creationDate, owner, username, description)
+        // (creationDate, username, description, owner)
+        users[usernameHash].creationDate = now;
+        users[usernameHash].username = username;
+        users[usernameHash].description = description;
+        users[usernameHash].owner = msg.sender;
 
         // add entry to our owners mapping so we can retrieve
         // user by their address
-        
+        owners[msg.sender] = usernameHash;
     }
 
     /**
@@ -96,9 +100,13 @@ contract DTwitter {
         require(users[usernameHash].owner == msg.sender);
 
         // update the description (could be empty)
+        users[usernameHash].description = description;
 
         // only update the user's picture if the hash passed in is
         // not empty or null (essentially disallows deletions)
+        if (bytes(pictureHash).length > 0) {
+            users[usernameHash].picture = pictureHash;
+        }
     }
 
     /**
@@ -110,7 +118,7 @@ contract DTwitter {
      */
     function userExists(bytes32 usernameHash) public view returns (bool) {
         // must check a property... bc solidity!
-        
+        return users[usernameHash].creationDate != 0;
     }
 
     /**
@@ -128,12 +136,16 @@ contract DTwitter {
         bytes32 usernameHash = owners[msg.sender];
 
         // get our user
+        User storage user = users[usernameHash];
 
         // get our new tweet index
+        uint tweetIndex = user.tweets.length++;
 
         // update the user's tweets at the tweet index
+        user.tweets[tweetIndex] = content;
 
         // emit the tweet event and notify the listeners
+        emit NewTweet(usernameHash, content, now);
     }
 
 }

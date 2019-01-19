@@ -22,7 +22,7 @@ Let’s use the code-generated `DTwitter` API and the `EmbarkJS` API to interact
 The `UpdateUser` component will call our `editAccount` contract function to update the details of the user. This happens when the 'Update profile' button is clicked and the `_handleClick` event is fired. In the `_handleClick` event:
 ```
 // upload the file to ipfs and get the resulting hash
-await EmbarkJS.Storage.uploadFile([this.inputPicture]);
+hash = await EmbarkJS.Storage.uploadFile([this.inputPicture]);
 
 // get a handle for the editAccount method
 const editAccount = DTwitter.methods.editAccount(web3.utils.keccak256(user.username), description, hash);
