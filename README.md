@@ -1,3 +1,2 @@
-# ETHBerlin Embark competition - September 7-9th, 2018
-For attendees of ETHBerlin September 7-9th
+# ETH workshop at IIT, Jodhpur - January 22-24th, 2019
 ## ☛ [start here](https://github.com/status-im/ethindia-embark/tree/start-here) ☚
