@@ -7,10 +7,8 @@ We will leverage Embark’s featureset to write our smart contract, write unit t
 ## Let's go
 Clone the DTwitter template into your dApp folder:
 ```
-cd [parent folder] (ie ~/dev/__github)
-git clone https://github.com/status-im/ethindia-embark
-cd ethindia-embark
-git checkout start-here
+git clone git@github.com:atvanguard/ethworkshop-iitj.git
+cd ethworkshop-iitj
 ```
 Let’s take a moment to look at the file structure of the dApp and open the template in our IDE.
 * `/app` - contains all our assets for the website. These will get webpacked according to our settings in `/embark.json`.

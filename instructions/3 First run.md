@@ -1,9 +1,28 @@
 ## First run
 Now let’s run our website quickly to see what embark will do for us.
-```
+
+### Install project dependencies
+```shell
 npm install
+```
+### Ganache
+Our locally running private ethereum blockchain
+```shell
+ganache-cli --mnemonic 'box parent hope mention purity game lyrics must endorse media goat together'
+```
+Load the mnemonic in metamask as well.
+
+### IPFS
+Run your own IPFS
+```shell
+ipfs daemon
+```
+
+### Run DApp
+```shell
 embark run
 ```
+
 You should see the Embark console and it's components. 
 * *Contracts* - the top left shows which contracts are deployed and their address. * Modules loaded and running - the top right shows the status of the loaded modules running (or not running) in Embark. 
 * *Log* - the middle shows log output. 
