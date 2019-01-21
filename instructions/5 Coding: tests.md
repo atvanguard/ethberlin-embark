@@ -35,21 +35,10 @@ After a call to `editAccount`, our user's details should be updated.
     ```
     const updatedUserDetails = await users(usernameHash).call();
     ```
-###### Tweet event should fire when there is a tweet
-We need to ensure that our contract events subscription works correctly when someone creates a new tweet via the `tweet` function.
-1. Subscribe to the `NewTweet` event
+###### Receive the tweet via contract event
+1. Do the tweet
     ```
-    DTwitter.events.NewTweet({
-        filter: { _from: usernameHash },
-        fromBlock: 0
-   })
-   .on('data', (event) => {
-        assert.equal(event.returnValues.tweet, tweetContent);
-    });
-    ```
-2. Do the tweet
-    ```
-    await tweet(tweetContent).send();
+    const tweeted = await tweet(tweetContent).send();
     ```
 ### Run tests
 Let's run the tests to ensure they are all passing. In a new terminal, run:
