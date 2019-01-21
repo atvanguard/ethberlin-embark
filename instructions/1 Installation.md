@@ -25,7 +25,12 @@ sudo ./install.sh
 ipfs init
 ```
 
-## Installing Embark 3.1.7
+#### Install ganache-cli
+```
+npm install -g ganache-cli
+```
+
+#### Installing Embark 3.1.7
 If you already have Embark installed, please run: 
 ```
 embark version
