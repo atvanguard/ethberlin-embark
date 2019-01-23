@@ -8,7 +8,8 @@ npm install
 ### Ganache
 Our locally running private ethereum blockchain
 ```shell
-ganache-cli --mnemonic 'box parent hope mention purity game lyrics must endorse media goat together'
+export MNEMONIC='12 word phrase'
+ganache-cli --mnemonic $MNEMONIC
 ```
 Load the mnemonic in metamask as well.
 
